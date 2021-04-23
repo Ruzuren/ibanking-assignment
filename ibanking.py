@@ -128,17 +128,17 @@ def return_transaction(t):
     return {'Transaction ID': t.transaction_id, "Transaction Date": t.transaction_date, "Transaction Type": t.transaction_type,
     "Related account":t.account_id, "Full Name": acc.x.full_name}
 
-def return_save(t):
-    return {'Transaction ID': t.transaction_id, 'Transaction Date': t.transaction_date, 'Transaction Type': t.transaction_type,
-    "Target Branch":"", "Target Account":"", "Transaction Ammount": t.transaction_ammount, "Account Balance":""}
+# def return_save(t):
+#     return {'Transaction ID': t.transaction_id, 'Transaction Date': t.transaction_date, 'Transaction Type': t.transaction_type,
+#     "Target Branch":"", "Target Account":"", "Transaction Ammount": t.transaction_ammount, "Account Balance":""}
 
-def return_transfer(t):
-    return {'Transaction ID': t.transaction_id, 'Transaction Date': t.transaction_date, 'Transaction Type': t.transaction_type,
-    "From":"" , "Target Branch":"", "Target Account":"", "Transaction Ammount": t.transaction_ammount, "Description": t.transaction_description }
+# def return_transfer(t):
+#     return {'Transaction ID': t.transaction_id, 'Transaction Date': t.transaction_date, 'Transaction Type': t.transaction_type,
+#     "From":"" , "Target Branch":"", "Target Account":"", "Transaction Ammount": t.transaction_ammount, "Description": t.transaction_description }
 
-def return_withdraw(t):
-    return {'Transaction ID': t.transaction_id, "Transaction Date": t.transaction_date, "Transaction Type": t.transaction_type,
-    "Transaction Ammount": t.transaction_ammount, "Account Balance":""}
+# def return_withdraw(t):
+#     return {'Transaction ID': t.transaction_id, "Transaction Date": t.transaction_date, "Transaction Type": t.transaction_type,
+#     "Transaction Ammount": t.transaction_ammount, "Account Balance":""}
 
 #################################################################################################
 # Reporting
@@ -1240,7 +1240,7 @@ def get_total_debit():
                         all.append({
                             'The total debit is':i[0]
                         })
-                    return jsonify(all) # error karena transaction_ammount di tabel ini VARCHAR
+                    return jsonify(all) 
 
 # total credit (deposit) (Admin)
 @app.route('/transaction/credit/', methods = ["GET"])
@@ -1271,7 +1271,7 @@ def get_total_transfer():
                     for i in result:
                         all.append({
                             'The total credit is':i[0]
-                        }) # error karena transaction_ammount di tabel ini VARCHAR
+                        }) 
                     return jsonify(all)
 
 # total balance (user balance) (Admin)
